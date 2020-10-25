@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Checkers</title>
+        <style>
+            button, input, #turn{
+                font-size: 24px;
+            }
+        </style>
+    </head>
+    <h1>
+        <input  id="moveInput" placeholder="Input move here or click" type="text">
+        </br>
+        <button id="reset">Reset</button>
+        <button id="clearMove">Clear Move</button>
+        <button id="undoMove">Undo Click</button>
+        <button id="makeMove">Make Move</button>
+    </h1>
+    <body>
+        <canvas 
+        id="board"
+        width="400"
+        height="400"
+        style="border: 1px solid black"
+        ></canvas>
+        <div id="turn">Turn: R</div>
+    </body>
+    <script src="src/util.js"></script>
+    <script src="src/model.js"></script>
+    <script src="src/view-controller.js"></script>
+    <script src="index.js"></script>
+</html>
