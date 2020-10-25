@@ -46,6 +46,7 @@ const model = {
             this.switchTurn(); //switch the turn
         }
         else{ //move was not valid
+            alert("Invalid Move!")
             console.log("Invalid Move!");
         }
     },
@@ -127,4 +128,21 @@ const model = {
         //if this point is reached, the move is valid. Congrats, this is the end of the rabbit hole. :)
         return true;
     },
+    /*
+    * @return a player if there has been a winner, else undefined
+    */
+    getWinner: function () {
+        //loop through the board and count pieces
+        let countRed = 0; countBlack = 0;
+        for (i in this.board){
+            for (let j = 0; j < this.board[i].length; j++){
+                if (this.board[i][j] === "R") countRed++;
+                else if (this.board[i][j] === "B") countBlack++;
+            }
+        }
+        //if either player runs out of pieces, the other wins. Them both being 0 should never happen
+        if (countRed === 0) return "B";
+        if (countBlack === 0) return "R";
+        return undefined; //no winner
+    }
 };

@@ -28,6 +28,9 @@ const controller = {
             model.makeMove(moveInput.value);
             moveInput.value = "";
             view.drawToScreen(model.board);
+
+            let winner = model.getWinner();
+            if(winner !== undefined) alert(winner + " Has won!")
             document.getElementById("turn").innerText = "Turn: " + model.turn;
         }
         moveInput.addEventListener("keypress", e => {
@@ -71,13 +74,17 @@ const view = {
     * @param board, the board to be drawn
     */
     drawToScreen: function(board){
+        //variable to control checkerboard pattern
         let checkerBoardCounter = 1;
+        //loop through the board
         for (i in board){
             for (var j = 0; j < board[i].length; j++){
+                //if the counter is 1 make it white, else grey
                 this.context.fillStyle = checkerBoardCounter == 1 ? "#FFF" : "#616161";
+                //draw a rectangle for this square
                 this.context.fillRect(j*50,charToNum(i)*50,50,50);
-                checkerBoardCounter *= -1;
-
+                checkerBoardCounter *= -1; //adjust counter
+                //if the space contains a piece, draw it
                 if (board[i][j] === "R"){
                     this.drawPiece("#FF0000",i,j);
                 }
@@ -85,7 +92,7 @@ const view = {
                     this.drawPiece("#000",i,j);
                 }
             }
-            if (j % 2 == 0) checkerBoardCounter *= -1;
+            if (j % 2 == 0) checkerBoardCounter *= -1; //adjust counter
         }
     },
     /*
