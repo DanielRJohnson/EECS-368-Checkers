@@ -1,5 +1,5 @@
 # EECS-388-Checkers<br>
-Project 1 for EECS368 - Programming Language Paradigms<br>
+Project 1 for EECS368 - Programming Language Paradigms: Recreate a classic game in JavaScript<br>
 
 # Use:<br>
 Visit the GitHub Pages hosting: [here](https://danielrjohnson.github.io/EECS-368-Checkers/)<br>
